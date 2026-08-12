@@ -1,0 +1,233 @@
+:root {
+  --ink: #f5f2ec;
+  --ink-dim: rgba(245, 242, 236, 0.72);
+  --line: rgba(245, 242, 236, 0.35);
+  --btn-border: rgba(245, 242, 236, 0.55);
+  --overlay-top: rgba(8, 8, 10, 0.15);
+  --overlay-mid: rgba(8, 8, 10, 0.45);
+  --overlay-bottom: rgba(6, 6, 8, 0.88);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  background: #0a0a0b;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+.stage {
+  position: relative;
+  min-height: 100svh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8vh 8vw;
+  text-align: center;
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("../images/main.png");
+  background-size: cover;
+  background-position: center 28%;
+  filter: grayscale(100%) contrast(1.05);
+  transform: scale(1.03);
+  animation: bgIn 2.4s ease-out forwards;
+}
+
+@keyframes bgIn {
+  from {
+    transform: scale(1.12);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
+.bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--overlay-top) 0%,
+    var(--overlay-mid) 42%,
+    var(--overlay-bottom) 100%
+  );
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(18px, 3vh, 30px);
+  opacity: 0;
+  animation: riseIn 1.1s ease-out 0.5s forwards;
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.42em;
+  font-weight: 500;
+  color: var(--ink-dim);
+  text-transform: uppercase;
+}
+
+.names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.name {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: clamp(46px, 12vw, 68px);
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+}
+
+.amp {
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+  font-size: clamp(32px, 7vw, 42px);
+  color: var(--ink-dim);
+  margin: 6px 0;
+}
+
+.divider {
+  width: 1px;
+  height: 44px;
+  background: var(--line);
+  margin-top: 6px;
+}
+
+.open-btn {
+  position: relative;
+  margin-top: 18px;
+  border-radius: 31px;
+  padding: 16px 46px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: rgba(245, 242, 236, 0.1);
+  border: 1px solid var(--btn-border);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    background 0.35s ease,
+    letter-spacing 0.35s ease,
+    transform 0.25s ease;
+}
+
+.open-btn:hover {
+  background: rgba(245, 242, 236, 0.18);
+  letter-spacing: 0.34em;
+}
+
+.open-btn:active {
+  transform: scale(0.97);
+}
+
+.open-btn .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(245, 242, 236, 0.5);
+  transform: scale(0);
+  animation: ripple 0.6s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(3.2);
+    opacity: 0;
+  }
+}
+
+.details {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  text-align: center;
+  max-height: 400px;
+  opacity: 1;
+  overflow: hidden;
+  margin-top: 6px;
+}
+
+.detail-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.detail-label {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+.detail-value {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.details .divider {
+  height: 1px;
+  width: 40px;
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg,
+  .content,
+  .open-btn,
+  .details {
+    animation: none !important;
+    transition: none !important;
+  }
+}

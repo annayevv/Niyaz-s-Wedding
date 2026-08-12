@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="tk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#11100e" />
+    <title>Niyazmyrat & Enesh — Toý Çakylygy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/secondPage.css" />
+  </head>
+  <body>
+    <audio id="backgroundMusic" preload="auto" autoplay loop>
+      <source src="golden.mp3" type="audio/mpeg" />
+    </audio>
+    <button
+      class="music-toggle is-playing"
+      id="musicToggle"
+      type="button"
+      aria-label="Sazy duruz"
+      aria-pressed="true"
+      title="Sazy duruz"
+    >
+      <span class="music-disc" aria-hidden="true">
+        <svg viewBox="0 0 40 40" role="img">
+          <circle class="record-edge" cx="20" cy="20" r="14.5" />
+          <circle class="record-groove" cx="20" cy="20" r="9.5" />
+          <circle class="record-label" cx="20" cy="20" r="4.2" />
+          <circle class="record-hole" cx="20" cy="20" r="1.15" />
+          <path class="record-shine" d="M11.7 17.6a9 9 0 0 1 5.7-5.7" />
+        </svg>
+      </span>
+    </button>
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-content reveal">
+          <p class="eyebrow">Biz sizi</p>
+          <h1><span>Niyazmyrat</span><em>&amp;</em><span>Enesh</span></h1>
+          <p class="hero-invitation">toýuna çagyrýarys</p>
+          <div class="hero-line"></div>
+          <p class="hero-date">12 Sentýabr, 2026</p>
+          <p class="hero-time">Şenbe · 18:00</p>
+        </div>
+        <button
+          class="scroll-indicator"
+          aria-label="Aşak geç"
+          data-scroll-to="invitation"
+        >
+          <span></span>
+        </button>
+      </section>
+
+      <section class="invitation paper" id="invitation">
+        <div class="invitation-inner reveal">
+          <span class="invitation-heart" aria-hidden="true">♡</span>
+          <p class="invitation-copy">
+            Durmuşymyzdaky iň möhüm wakalaryň biri bolan toý dabarasynda eziz
+            adamlarymyzyň ýanymyzda bolmagyny tüýs ýürekden arzuw edýäris.
+          </p>
+          <p class="invitation-signature">Sizi toýumyza çagyrýarys.</p>
+        </div>
+      </section>
+
+      <section class="story paper" id="story">
+        <header class="section-heading reveal">
+          <p class="kicker">Biziň hekaýamyz</p>
+          <h2>Iki ýürek,<br />bir hekaýa</h2>
+          <p class="script">Her bir ajaýyp başlangyç söýgüden başlanýar.</p>
+        </header>
+        <div class="album reveal">
+          <figure class="album-large">
+            <img src="images/golfMain.png" alt="Niyazmyrat we Enesh" />
+          </figure>
+          <figure>
+            <img src="images/golfMain2.png" alt="Enesh gülleriň arasynda" />
+          </figure>
+          <figure>
+            <img src="images/main.png" alt="Niyazmyrat we Enesh dabarada" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="calendar-section paper">
+        <div class="calendar-card reveal">
+          <p class="month">Sentýabr 2026</p>
+          <div class="weekdays">
+            <span>DUŞ</span><span>SIŞ</span><span>ÇAR</span><span>PER</span
+            ><span>ANNA</span><span>ŞEN</span><span>ÝEK</span>
+          </div>
+          <div class="days" aria-label="Sentýabr 2026 kalendary">
+            <span></span><span>1</span><span>2</span><span>3</span><span>4</span
+            ><span>5</span><span>6</span> <span>7</span><span>8</span
+            ><span>9</span><span>10</span><span>11</span><strong>12</strong
+            ><span>13</span> <span>14</span><span>15</span><span>16</span
+            ><span>17</span><span>18</span><span>19</span><span>20</span>
+            <span>21</span><span>22</span><span>23</span><span>24</span
+            ><span>25</span><span>26</span><span>27</span> <span>28</span
+            ><span>29</span><span>30</span><span></span><span></span
+            ><span></span><span></span>
+          </div>
+          <div class="calendar-rule"></div>
+          <button class="save-date" id="saveDateButton" type="button">
+            <span aria-hidden="true">♡</span>
+            Toý senesini ýatda sakla
+          </button>
+          <p class="calendar-message" id="calendarMessage" role="status"></p>
+        </div>
+      </section>
+
+      <section class="countdown-section">
+        <div class="reveal">
+          <p class="countdown-title">Toýa galan wagt</p>
+          <div class="countdown" aria-live="polite">
+            <div><strong id="days">00</strong><span>Gün</span></div>
+            <div><strong id="hours">00</strong><span>Sagat</span></div>
+            <div><strong id="minutes">00</strong><span>Minut</span></div>
+            <div><strong id="seconds">00</strong><span>Sekunt</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="venue paper">
+        <div class="venue-copy reveal">
+          <p class="kicker">Dabaranyň geçirilýän ýeri</p>
+          <h2>Toý mekany</h2>
+          <p class="venue-name">Aşgabat şäheri</p>
+          <p class="venue-address">
+            Toý mekanynyň doly salgysyny şu ýere ýazyp bilersiňiz.
+          </p>
+          <p class="venue-schedule">
+            Myhmanlary garşylamak 17:30 · Dabara 18:00
+          </p>
+          <a
+            class="outline-button"
+            href="https://maps.google.com/?q=Ashgabat"
+            target="_blank"
+            rel="noreferrer"
+            >Salgyny kartada gör</a
+          >
+        </div>
+        <a
+          class="map-card reveal"
+          href="https://maps.google.com/?q=Ashgabat"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Kartada aç"
+        >
+          <div class="map-lines" aria-hidden="true"></div>
+          <span class="map-monogram">N <i>&amp;</i> E</span>
+          <span class="pin" aria-hidden="true"><b></b></span>
+          <small>Aşgabat · Türkmenistan</small>
+        </a>
+      </section>
+
+      <section class="moments paper">
+        <header class="section-heading reveal">
+          <p class="kicker">Iň eziz ýatlamalarymyz</p>
+          <h2>Ýatda galan<br />pursatlar</h2>
+        </header>
+        <div class="moment-stack">
+          <figure class="reveal">
+            <img src="images/main.png" alt="Dabaradan pursat" />
+          </figure>
+          <figure class="reveal">
+            <img src="images/golfMain.png" alt="Bilelikdäki pursat" />
+          </figure>
+          <figure class="reveal">
+            <img src="images/golfMain2.png" alt="Söýgi hekaýasyndan pursat" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="rsvp paper" id="rsvp">
+        <header class="section-heading reveal">
+          <p class="kicker">Siziň gatnaşmagyňyza şat bolarys</p>
+          <h2>Biziň bagtymyza şärik boluň</h2>
+          <p class="script">
+            “Biziň bagtymyzy siziň bilen paýlaşmaga sabyrsyzlyk bilen
+            garaşýarys.”
+          </p>
+        </header>
+        <form class="rsvp-card reveal" id="rsvpForm">
+          <p class="form-title">Toýa gatnaşjakdygyňyzy habar beriň</p>
+          <label for="guestName">Doly adyňyz</label>
+          <input id="guestName" name="name" autocomplete="name" required />
+          <fieldset>
+            <legend>Toýa gatnaşarsyňyzmy?</legend>
+            <label class="radio"
+              ><input
+                type="radio"
+                name="attendance"
+                value="yes"
+                required
+              /><span></span>Höwes bilen gatnaşaryn</label
+            >
+            <label class="radio"
+              ><input type="radio" name="attendance" value="no" /><span></span
+              >Gynansam-da gatnaşmaryn</label
+            >
+          </fieldset>
+          <button type="submit">Jogaby iber</button>
+          <p class="form-message" id="formMessage" role="status"></p>
+        </form>
+        <footer>
+          <span>N</span><i>&amp;</i><span>E</span><small>12 · 09 · 2026</small>
+        </footer>
+      </section>
+    </main>
+    <script src="js/mainPage.js"></script>
+  </body>
+</html>
