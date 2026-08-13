@@ -1,4 +1,4 @@
-const weddingDate = new Date("2026-09-12T18:00:00+05:00");
+const weddingDate = new Date("2026-09-10T18:00:00+05:00");
 const backgroundMusic = document.getElementById("backgroundMusic");
 const musicToggle = document.getElementById("musicToggle");
 let musicWasPausedByUser = false;
@@ -134,19 +134,19 @@ if (saveDateButton) {
     const calendarData = [
       "BEGIN:VCALENDAR",
       "VERSION:2.0",
-      "PRODID:-//Niyazmyrat we Enesh//Toy Cakylygy//TK",
+      "PRODID:-//Niyaz we Enesh//Toy Cakylygy//TK",
       "CALSCALE:GREGORIAN",
       "METHOD:PUBLISH",
-      "X-WR-CALNAME:Niyazmyrat we Eneshing toy dabarasy",
+      "X-WR-CALNAME:Niyaz we Eneshiň toý dabarasy",
       "X-WR-TIMEZONE:Asia/Ashgabat",
       "BEGIN:VEVENT",
-      "UID:niyazmyrat-enesh-20260912@toy-cakylygy",
+      "UID:niyaz-enesh-20260910@toy-cakylygy",
       `DTSTAMP:${createdAt}`,
-      "DTSTART;TZID=Asia/Ashgabat:20260912T180000",
-      "DTEND;TZID=Asia/Ashgabat:20260913T000000",
-      "SUMMARY:Niyazmyrat we Eneshiň toý dabarasy",
+      "DTSTART;TZID=Asia/Ashgabat:20260910T180000",
+      "DTEND;TZID=Asia/Ashgabat:20260911T000000",
+      "SUMMARY:Niyaz we Eneshiň toý dabarasy",
       "DESCRIPTION:Biz sizi toý dabarasyna çagyrýarys.",
-      "LOCATION:Aşgabat şäheri\, Türkmenistan",
+      "LOCATION:Beýik Saparmyrat Türkmenbaşy şaýoly\, Aşgabat\, Toý mekany",
       "BEGIN:VALARM",
       "TRIGGER:-P1D",
       "ACTION:DISPLAY",
@@ -163,7 +163,7 @@ if (saveDateButton) {
     const link = document.createElement("a");
 
     link.href = fileUrl;
-    link.download = "Niyazmyrat-we-Enesh-12-09-2026.ics";
+    link.download = "Niyaz-we-Enesh-10-09-2026.ics";
     document.body.appendChild(link);
     link.click();
     link.remove();
